@@ -4,7 +4,7 @@ import time
 import random
 import math
 
-game_numbers = ('1', '2', '3', '4')
+game_numbers = ('1', '2', '3', '4', '5')
 game_sel = 'a'
 game_difficulties = ('e', 'm', 'h')
 game_difficulty = 'a'
@@ -67,6 +67,17 @@ def division():
 
     return
 
+def percentages():
+    global result
+    num = get_number()
+    perc = random.randint(1,99)
+
+    result = float(perc/100 * num)
+
+    print(f'{perc} % of {num} ?')
+
+    return
+
 def get_answer():
     answer = float(input())
     if answer == result:
@@ -94,10 +105,10 @@ def remove_life():
 print(colored('-------------------------------------------------------','blue'))
 print(colored('Welcome to the math game!','blue'))
 print(colored('What game do you want to play?','blue'))
-print(f'1. Additions\n2. Subtractions\n3. Products\n4. Divisions\n')
+print(f'1. Additions\n2. Subtractions\n3. Products\n4. Divisions\n5. Percentages\n')
 
 while game_sel not in game_numbers:
-    game_sel = input('Type a number from 1 to 4: ')
+    game_sel = input('Type a number from 1 to 5: ')
 
 print(colored('Select the difficulty:','blue'))
 print(f'e. Easy\nm. Medium\nh. Hard\n')
@@ -153,3 +164,15 @@ match game_sel:
             print('')
             division()
             get_answer()        
+
+    case '5':
+        #Percentages
+        print(colored('-------------------------------------------------------','blue'))
+        print(colored('Percentages game! Get ready!','blue'))
+        print(f'You have {lenght_game} exercises')
+        time.sleep(2)
+        for i in range(lenght_game):
+            if lives == 0 : break
+            print('')
+            percentages()
+            get_answer() 
