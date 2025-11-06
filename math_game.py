@@ -28,7 +28,7 @@ def addiction():
     num1 = get_number()
     num2 = get_number()
 
-    result = str(num1 + num2)
+    result = float(num1 + num2)
 
     print(f'{num1} + {num2} ?')
 
@@ -39,7 +39,7 @@ def subtraction():
     num1 = get_number()
     num2 = get_number()
 
-    result = str(num1 - num2)
+    result = float(num1 - num2)
 
     print(f'{num1} - {num2} ?')
 
@@ -50,7 +50,7 @@ def product():
     num1 = get_number()
     num2 = get_number()
 
-    result = str(num1 * num2)
+    result = float(num1 * num2)
 
     print(f'{num1} * {num2} ?')
 
@@ -61,14 +61,14 @@ def division():
     num1 = get_number()
     num2 = get_number()
 
-    result = str(round(num1 / num2, 2))
+    result = float(round(num1 / num2, 2))
 
     print(f'{num1} / {num2} ?')
 
     return
 
 def get_answer():
-    answer = input()
+    answer = float(input())
     if answer == result:
         print(colored('Correct!', 'green'))
     else:
