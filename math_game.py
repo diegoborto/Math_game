@@ -33,12 +33,24 @@ def addiction():
 
     return
 
+def subtraction():
+    global result
+    num1 = get_number()
+    num2 = get_number()
+
+    result = str(num1 - num2)
+
+    print(f'{num1} - {num2} ?')
+
+    return
+
 def get_answer():
     answer = input()
     if answer == result:
         print(colored('Correct!', 'green'))
     else:
         print(colored('Wrong!', 'red'))
+        print('Correct answer was:', result)
         remove_life()
 
 def remove_life():
@@ -47,6 +59,7 @@ def remove_life():
     if lives > 1:
         lives=lives -1
         print('Lives remaining:', lives)
+        print(colored('-------------------------------------------------------','red'))
     else:
         #game over
         lives = 0
@@ -55,7 +68,7 @@ def remove_life():
     return 
 
 #----------------------------------------------------------------------------------------
-
+print(colored('-------------------------------------------------------','blue'))
 print(colored('Welcome to the math game!','blue'))
 print(colored('What game do you want to play?','blue'))
 print(f'1. Additions\n2. Subtractions\n3. Products\n4. Divisions\n')
@@ -72,7 +85,9 @@ while game_difficulty not in game_difficulties:
 match game_sel:
     #additions
     case '1':
+        print(colored('-------------------------------------------------------','blue'))
         print(colored('Addictions game! Get ready!','blue'))
+        print(f'You have {lenght_game} exercises')
         time.sleep(2)
         for i in range(lenght_game):
             if lives == 0 : break
@@ -80,3 +95,13 @@ match game_sel:
             addiction()
             get_answer()
             
+    case '2':
+        print(colored('-------------------------------------------------------','blue'))
+        print(colored('Subtractions game! Get ready!','blue'))
+        print(f'You have {lenght_game} exercises')
+        time.sleep(2)
+        for i in range(lenght_game):
+            if lives == 0 : break
+            print('')
+            subtraction()
+            get_answer()
