@@ -2,6 +2,7 @@ import termcolor
 from termcolor import colored
 import time
 import random
+import math
 
 game_numbers = ('1', '2', '3', '4')
 game_sel = 'a'
@@ -41,6 +42,28 @@ def subtraction():
     result = str(num1 - num2)
 
     print(f'{num1} - {num2} ?')
+
+    return
+
+def product():
+    global result
+    num1 = get_number()
+    num2 = get_number()
+
+    result = str(num1 * num2)
+
+    print(f'{num1} * {num2} ?')
+
+    return
+
+def division():
+    global result
+    num1 = get_number()
+    num2 = get_number()
+
+    result = str(round(num1 / num2, 2))
+
+    print(f'{num1} / {num2} ?')
 
     return
 
@@ -96,6 +119,7 @@ match game_sel:
             get_answer()
             
     case '2':
+        #subtractions
         print(colored('-------------------------------------------------------','blue'))
         print(colored('Subtractions game! Get ready!','blue'))
         print(f'You have {lenght_game} exercises')
@@ -105,3 +129,27 @@ match game_sel:
             print('')
             subtraction()
             get_answer()
+
+    case '3':
+        #products
+        print(colored('-------------------------------------------------------','blue'))
+        print(colored('Products game! Get ready!','blue'))
+        print(f'You have {lenght_game} exercises')
+        time.sleep(2)
+        for i in range(lenght_game):
+            if lives == 0 : break
+            print('')
+            product()
+            get_answer()
+
+    case '4':
+        #divisions
+        print(colored('-------------------------------------------------------','blue'))
+        print(colored('Divisions game! Get ready! (2 decimals)','blue'))
+        print(f'You have {lenght_game} exercises')
+        time.sleep(2)
+        for i in range(lenght_game):
+            if lives == 0 : break
+            print('')
+            division()
+            get_answer()        
